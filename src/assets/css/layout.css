@@ -1,0 +1,133 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9fafb;
+  color: #333;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ----- Top Bar ----- */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 30px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.menu-left ul {
+  display: flex;
+  list-style: none;
+  gap: 16px;
+}
+
+.menu-left a {
+  color: #b22d7f;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.menu-left a:hover {
+  color: #5426d1;
+}
+
+.header-center .logo {
+  width: 300px;
+  height: auto;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.login-btn,
+.logout-btn {
+  background-color: #2da2b2;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.login-btn:hover,
+.logout-btn:hover {
+  background-color: #248b9a;
+}
+
+/* ----- Navbar Xanh ----- */
+.nav-blue {
+  background-color: #2da2b2;
+}
+
+.nav-blue ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.nav-blue li a {
+  display: block;
+  padding: 14px 22px;
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.nav-blue li:hover {
+  background-color: #248b9a;
+}
+
+/* MAIN CONTENT */
+.main-content {
+  padding: 40px 60px;
+  min-height: 70vh;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 16px;
+  background-color: #2da2b2;
+  color: white;
+  font-size: 14px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .menu-left ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .header-center .logo {
+    width: 220px;
+  }
+
+  .nav-blue ul {
+    flex-wrap: wrap;
+  }
+}
