@@ -15,6 +15,8 @@ import ListProducts from "./ListProducts";
 // @ts-ignore
 import ListSanPham from "./ListSanPham";
 // @ts-ignore
+import About from "./About";
+// @ts-ignore
 import ListProducts_SP from "./ListProducts_SP";
 // @ts-ignore
 import ProductDetail from "./ProductDetail";
@@ -41,6 +43,7 @@ const App = () => {
           <Route path="trang2" element={<Trang2 />} />
           <Route path="ListSanPham" element={<ListSanPham />} />
           <Route path="login" element={<LoginPage />} />
+          <Route path="About" element={<About />} />
           <Route path="detail/:id" element={<ProductDetail />} />
 
           {/* ✅ Trang đăng xuất */}

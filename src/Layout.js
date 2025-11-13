@@ -45,10 +45,13 @@ const Layout = () => {
                 <a href="/ListSanPham">Sản phẩm</a>
               </li>
               <li>
-                <a href="/trang1">E-GOV</a>
+                <a href="/trang1">Đồ linh tinh</a>
               </li>
               <li>
-                <a href="/trang2">Sinh viên</a>
+                <a href="/trang2">Thành Viên</a>
+              </li>
+              <li>
+                <a href="/About">Về chúng tôi</a>
               </li>
             </ul>
           </nav>

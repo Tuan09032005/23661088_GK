@@ -1,0 +1,140 @@
+.about-container {
+  font-family: "Arial", sans-serif;
+  color: #333;
+  line-height: 1.6;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Hero Section */
+.about-hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.hero-text {
+  flex: 1 1 500px;
+}
+
+.hero-text h1 {
+  font-size: 48px;
+  color: #0d6efd;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 18px;
+  color: #555;
+}
+
+.hero-image img {
+  width: 500px;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Mission & Vision */
+.about-mission {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.about-mission h2 {
+  font-size: 36px;
+  color: #0d6efd;
+  margin-bottom: 30px;
+}
+
+.mission-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.card {
+  flex: 1 1 300px;
+  background: #f2f4f7;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  font-size: 24px;
+  margin-bottom: 12px;
+  color: #0d6efd;
+}
+
+/* Team Section */
+.about-team {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.about-team h2 {
+  font-size: 36px;
+  color: #0d6efd;
+  margin-bottom: 40px;
+}
+
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.team-member {
+  flex: 1 1 200px;
+  text-align: center;
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.team-member h4 {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.team-member p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-hero {
+    flex-direction: column;
+  }
+  .hero-text h1 {
+    font-size: 36px;
+  }
+  .about-mission h2,
+  .about-team h2 {
+    font-size: 28px;
+  }
+  .mission-cards,
+  .team-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
