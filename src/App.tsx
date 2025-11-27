@@ -29,38 +29,46 @@ import ProtectedRoute from "./ProtectedRoute";
 //@ts-ignore
 import ListProducts_SP_Admin from "./ListProducts_SP_Admin";
 
+// --- IMPORT MỚI CHO GIỎ HÀNG ---
+import { CartProvider } from "./CartContext"; // Context vừa sửa ở Bước 1
+import CartPage from "./CartPage"; // Trang hiển thị giỏ hàng (Xem bước 3)
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
   //return <Layout />;
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<ListProducts_SP />} />
-          <Route path="trang1" element={<Trang1 />} />
-          <Route path="sanpham/:id" element={<Chitietsanpham />} />
-          <Route path="trang2" element={<Trang2 />} />
-          <Route path="ListSanPham" element={<ListSanPham />} />
-          <Route path="login" element={<LoginPage />} />
-          <Route path="About" element={<About />} />
-          <Route path="detail/:id" element={<ProductDetail />} />
+    <CartProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<ListProducts_SP />} />
+            {/* ✅ 2. Thêm Route cho Giỏ Hàng */}
+            <Route path="cart" element={<CartPage />} />
+            <Route path="trang1" element={<Trang1 />} />
+            <Route path="sanpham/:id" element={<Chitietsanpham />} />
+            <Route path="trang2" element={<Trang2 />} />
+            <Route path="ListSanPham" element={<ListSanPham />} />
+            <Route path="login" element={<LoginPage />} />
+            <Route path="About" element={<About />} />
+            <Route path="detail/:id" element={<ProductDetail />} />
 
-          {/* ✅ Trang đăng xuất */}
-          <Route path="logout" element={<LogoutPage />} />
+            {/* ✅ Trang đăng xuất */}
+            <Route path="logout" element={<LogoutPage />} />
 
-          {/* ✅ Trang quản trị (nằm trong Layout, chỉ Admin truy cập) */}
-          <Route
-            path="admin/products"
-            element={
-              <ProtectedRoute>
-                <ListProducts_SP_Admin />
-              </ProtectedRoute>
-            }
-          />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+            {/* ✅ Trang quản trị (nằm trong Layout, chỉ Admin truy cập) */}
+            <Route
+              path="admin/products"
+              element={
+                <ProtectedRoute>
+                  <ListProducts_SP_Admin />
+                </ProtectedRoute>
+              }
+            />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </CartProvider>
   );
 };
 

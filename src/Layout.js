@@ -1,11 +1,18 @@
 import "./assets/css/layout.css";
 import logo from "./assets/images/Ten-truong-do-1000x159.png";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useCart } from "./CartContext";
 
 const Layout = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  const { cartItems } = useCart();
+
+  const totalQuantity = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
@@ -20,7 +27,6 @@ const Layout = () => {
     navigate("/login");
   };
 
-  // 🔒 Xác định admin
   const isAdmin = user && user.role === "admin";
 
   return (
@@ -31,37 +37,67 @@ const Layout = () => {
           <nav className="menu-left">
             <ul>
               <li>
-                <a href="/">Trang chủ</a>
+                <Link to="/">Trang chủ</Link>
               </li>
 
-              {/* Chỉ hiện Quản trị nếu admin */}
               {isAdmin && (
                 <li>
-                  <a href="/admin/products">Quản trị</a>
+                  <Link to="/admin/products">Quản trị</Link>
                 </li>
               )}
 
               <li>
-                <a href="/ListSanPham">Sản phẩm</a>
+                <Link to="/ListSanPham">Sản phẩm</Link>
               </li>
               <li>
-                <a href="/trang1">Đồ linh tinh</a>
+                <Link to="/trang1">Đồ linh tinh</Link>
               </li>
               <li>
-                <a href="/trang2">Thành Viên</a>
+                <Link to="/trang2">Thành Viên</Link>
               </li>
               <li>
-                <a href="/About">Về chúng tôi</a>
+                <Link to="/About">Về chúng tôi</Link>
+              </li>
+
+              {/* 🛒 GIỎ HÀNG */}
+              <li>
+                <Link
+                  to="/cart"
+                  className="menu-item"
+                  style={{
+                    textDecoration: "none",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  🛒 Giỏ hàng
+                  {totalQuantity > 0 && (
+                    <span
+                      style={{
+                        backgroundColor: "red",
+                        color: "white",
+                        borderRadius: "50%",
+                        padding: "2px 6px",
+                        fontSize: "12px",
+                        marginLeft: "5px",
+                      }}
+                    >
+                      {totalQuantity}
+                    </span>
+                  )}
+                </Link>
               </li>
             </ul>
           </nav>
 
+          {/* LOGO */}
           <div className="header-center">
-            <a href="/">
+            <Link to="/">
               <img src={logo} alt="Logo" className="logo" />
-            </a>
+            </Link>
           </div>
 
+          {/* LOGIN / USER INFO */}
           <div className="header-right">
             {user ? (
               <div className="user-info">
@@ -71,21 +107,21 @@ const Layout = () => {
                 </button>
               </div>
             ) : (
-              <a href="/login" className="login-btn">
+              <Link to="/login" className="login-btn">
                 Đăng nhập
-              </a>
+              </Link>
             )}
           </div>
         </div>
 
-        {/* NAVBAR XANH tạm */}
+        {/* NAVBAR XANH */}
         <nav className="nav-blue">
           <ul>
             <li>
-              <a href="#">Menu 1</a>
+              <Link to="#">Menu 1</Link>
             </li>
             <li>
-              <a href="#">Menu 2</a>
+              <Link to="#">Menu 2</Link>
             </li>
           </ul>
         </nav>
