@@ -96,13 +96,6 @@ const Layout = () => {
             </ul>
           </nav>
 
-          {/* LOGO */}
-          <div className="header-center">
-            <Link to="/">
-              <img src={logo} alt="Logo" className="logo hover-scale" />
-            </Link>
-          </div>
-
           {/* LOGIN / USER INFO */}
           <div className="header-right">
             {user ? (
