@@ -122,22 +122,6 @@ const Layout = () => {
             )}
           </div>
         </div>
-
-        {/* NAVBAR XANH */}
-        <nav className="nav-blue">
-          <ul>
-            <li>
-              <Link className="nav-link" to="#">
-                Menu 1
-              </Link>
-            </li>
-            <li>
-              <Link className="nav-link" to="#">
-                Menu 2
-              </Link>
-            </li>
-          </ul>
-        </nav>
       </header>
 
       {/* MAIN CONTENT */}
