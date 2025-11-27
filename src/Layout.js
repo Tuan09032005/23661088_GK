@@ -19,6 +19,12 @@ const Layout = () => {
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
+
+    // 👇 Hiệu ứng header fade-in
+    const header = document.querySelector(".header");
+    if (header) {
+      header.classList.add("fade-in");
+    }
   }, []);
 
   const handleLogout = () => {
@@ -37,53 +43,53 @@ const Layout = () => {
           <nav className="menu-left">
             <ul>
               <li>
-                <Link to="/">Trang chủ</Link>
+                <Link className="nav-link" to="/">
+                  Trang chủ
+                </Link>
               </li>
 
               {isAdmin && (
                 <li>
-                  <Link to="/admin/products">Quản trị</Link>
+                  <Link className="nav-link" to="/admin/products">
+                    Quản trị
+                  </Link>
                 </li>
               )}
 
               <li>
-                <Link to="/ListSanPham">Sản phẩm</Link>
+                <Link className="nav-link" to="/ListSanPham">
+                  Sản phẩm
+                </Link>
               </li>
               <li>
-                <Link to="/trang1">Đồ linh tinh</Link>
+                <Link className="nav-link" to="/trang1">
+                  Đồ linh tinh
+                </Link>
               </li>
               <li>
-                <Link to="/trang2">Thành Viên</Link>
+                <Link className="nav-link" to="/trang2">
+                  Thành Viên
+                </Link>
               </li>
               <li>
-                <Link to="/About">Về chúng tôi</Link>
+                <Link className="nav-link" to="/About">
+                  Về chúng tôi
+                </Link>
               </li>
 
               {/* 🛒 GIỎ HÀNG */}
               <li>
                 <Link
                   to="/cart"
-                  className="menu-item"
+                  className="menu-item nav-link"
                   style={{
-                    textDecoration: "none",
                     display: "flex",
                     alignItems: "center",
                   }}
                 >
                   🛒 Giỏ hàng
                   {totalQuantity > 0 && (
-                    <span
-                      style={{
-                        backgroundColor: "red",
-                        color: "white",
-                        borderRadius: "50%",
-                        padding: "2px 6px",
-                        fontSize: "12px",
-                        marginLeft: "5px",
-                      }}
-                    >
-                      {totalQuantity}
-                    </span>
+                    <span className="cart-badge">{totalQuantity}</span>
                   )}
                 </Link>
               </li>
@@ -93,7 +99,7 @@ const Layout = () => {
           {/* LOGO */}
           <div className="header-center">
             <Link to="/">
-              <img src={logo} alt="Logo" className="logo" />
+              <img src={logo} alt="Logo" className="logo hover-scale" />
             </Link>
           </div>
 
@@ -102,12 +108,15 @@ const Layout = () => {
             {user ? (
               <div className="user-info">
                 <span>👤 {user.username}</span>
-                <button onClick={handleLogout} className="logout-btn">
+                <button
+                  onClick={handleLogout}
+                  className="logout-btn hover-scale"
+                >
                   Đăng xuất
                 </button>
               </div>
             ) : (
-              <Link to="/login" className="login-btn">
+              <Link to="/login" className="login-btn hover-scale">
                 Đăng nhập
               </Link>
             )}
@@ -118,10 +127,14 @@ const Layout = () => {
         <nav className="nav-blue">
           <ul>
             <li>
-              <Link to="#">Menu 1</Link>
+              <Link className="nav-link" to="#">
+                Menu 1
+              </Link>
             </li>
             <li>
-              <Link to="#">Menu 2</Link>
+              <Link className="nav-link" to="#">
+                Menu 2
+              </Link>
             </li>
           </ul>
         </nav>
@@ -133,7 +146,7 @@ const Layout = () => {
       </main>
 
       {/* FOOTER */}
-      <footer className="footer">
+      <footer className="footer fade-in">
         <p>© 2025 Tuan 23661088</p>
       </footer>
     </div>
